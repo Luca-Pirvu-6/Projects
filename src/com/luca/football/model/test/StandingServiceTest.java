@@ -89,12 +89,10 @@ class StandingServiceTest {
     void shouldTieBreakByGoalDifference() {
         LocalDateTime now = LocalDateTime.now();
 
-        // Real Madrid 4 - 0 Atletico (RMA: 3 pct, GD +4)
         Match m1 = new Match(1L, testSeason, realMadrid, atletico, now.minusDays(2));
         m1.startMatch();
         m1.endMatch(4, 0);
 
-        // Barcelona 1 - 0 Atletico (FCB: 3 pct, GD +1)
         Match m2 = new Match(2L, testSeason, barcelona, atletico, now.minusDays(1));
         m2.startMatch();
         m2.endMatch(1, 0);
@@ -104,7 +102,6 @@ class StandingServiceTest {
                 List.of(m1, m2)
         );
 
-        // Real Madrid should be 1st due to +4 GD vs FCB's +1 GD
         assertEquals(realMadrid, table.get(0).getTeam());
         assertEquals(barcelona, table.get(1).getTeam());
         assertEquals(atletico, table.get(2).getTeam());
