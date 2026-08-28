@@ -1,4 +1,4 @@
-package com.luca.football.model.test;
+package test;
 
 import com.luca.football.model.*;
 import org.junit.jupiter.api.Assertions;
