@@ -32,15 +32,12 @@ public class StandingService {
                 int awayScore = match.getAwayScore();
 
                 if (homeScore > awayScore) {
-                    // Gazdele castiga, oaspetii pierd
                     homeRow.recordwin(homeScore, awayScore);
                     awayRow.recordloss(awayScore, homeScore);
                 } else if (homeScore < awayScore) {
-                    // Oaspetii castiga, gazdele pierd
                     homeRow.recordloss(homeScore, awayScore);
                     awayRow.recordwin(awayScore, homeScore);
                 } else {
-                    // Remiza
                     homeRow.recorddraw(homeScore, awayScore);
                     awayRow.recorddraw(awayScore, homeScore);
                 }
